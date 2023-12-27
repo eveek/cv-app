@@ -32,7 +32,9 @@ function App() {
           <div className="pageTwo">
             <div className='formBox'>
               <form action="">
-                
+                <div></div>
+                <div></div>
+                <div></div>
               </form>
             </div>
             <div className='cvDisplay'></div>
