@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import './pageOne.css'
+import './styles/pageOne.css'
+import './styles/pageTwo.css'
 
 
 function App() {
@@ -29,8 +30,13 @@ function App() {
             </div>
           </div>
           <div className="pageTwo">
-        </div>
-
+            <div className='formBox'>
+              <form action="">
+                
+              </form>
+            </div>
+            <div className='cvDisplay'></div>
+          </div>
         </div>
       </div>
     </>
