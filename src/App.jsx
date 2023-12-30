@@ -10,6 +10,7 @@ function App() {
     page.style.top = "-1000px"
   }
 
+
   return (
     <>
       <div className="landingMessage">
@@ -37,7 +38,7 @@ function App() {
                     <legend>Personal Information</legend>
                     <div className='full'><input type="text" id='fName' placeholder='Fullname'/></div>
                     <div id='phem'>
-                      <input type="number" id='fPhone' placeholder='Phone'/>
+                      <input type="tel" id='fPhone' placeholder='Phone'/>
                       <input type="email" id='fEmail' placeholder='Email'/>
                     </div>
                     <div>
@@ -58,11 +59,11 @@ function App() {
                     <div className='tDuration'>
                       <div>
                         <label htmlFor="stdDurationFrom">From</label>
-                        <input type="date" name="stdDurationFrom" id="stdDurationFrom" />
+                        <input type="month" name="stdDurationFrom" id="stdDurationFrom" />
                       </div>
                       <div>
                         <label htmlFor="stdDurationTo">To</label>
-                        <input type="date" name="stdDurationTo" id="stdDurationTo" />
+                        <input type="month" name="stdDurationTo" id="stdDurationTo" />
                       </div>
                     </div>
                     <button>+ Add Educational Experience</button>
@@ -77,11 +78,11 @@ function App() {
                     <div className='tDuration'>
                       <div>
                         <label htmlFor="prtDurationFrom">From</label>
-                        <input type="date" name="prtDurationFrom" id="prtDurationFrom" />
+                        <input type="month" name="prtDurationFrom" id="prtDurationFrom" />
                       </div>
                       <div>
                         <label htmlFor="prtDurationTo">To</label>
-                        <input type="date" name="prtDurationTo" id="prtDurationTo" />
+                        <input type="month" name="prtDurationTo" id="prtDurationTo" />
                       </div>
                     </div>
                     <button>+ Add Work Experience</button>
