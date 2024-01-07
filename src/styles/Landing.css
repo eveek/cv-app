@@ -73,7 +73,6 @@ h1.hOne{
 }
 
 h1.hOne span {
-  font-style: italic;
   color: transparent;
   -webkit-background-clip: text;
   background-image: linear-gradient(to right, rgb(56, 105, 239), rgb(249, 91, 212));
