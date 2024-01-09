@@ -1,4 +1,4 @@
-import Form from "./form"
+import Form from "./Formy"
 import Display from "./Display"
 
 function Create () {

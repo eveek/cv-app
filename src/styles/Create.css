@@ -13,6 +13,7 @@
     flex-basis: 50%;
     margin-right: 20px;
     height: 700px;
+    /* background-color: rgb(179, 220, 245); */
     /* overflow-y: scroll; */
     /* background-color: blueviolet; */
 }
@@ -32,20 +33,23 @@
 .formBox button {
     margin-top: 10px;
     font-weight: 600;
+    border-radius: 0px;
     transition: all .2s ease-in-out;
 }
 
 legend{
     color: black;
-    color: rgb(56, 105, 239);
-    font-size: 25px;
+    /* color: rgb(56, 105, 239); */
+    color: transparent;
+    background-image: linear-gradient(to right, rgb(56, 105, 239), rgb(249, 91, 212));
+    background-clip: text;
+    font-size: 30px;
     font-weight: 600;
 }
 
 .formBox fieldset {
     padding: 20px;
-    border-color: rgb(56, 105, 239);
-    /* border: none; */
+    border: none;;
 }
 
 .formBox fieldset div {
@@ -67,21 +71,21 @@ legend{
 
 .formBox #fSubmit #formSubmit {
     float: right;
-    padding: 15px 30px;
-    font-size: 25px;
-    border-radius: 20px 0px 20px 0px; 
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 0px;
     font-weight: 600;
     border: none;
     background-image: linear-gradient(to right, rgb(56, 105, 239), rgb(249, 91, 212));
 }
 
 .formBox button:hover {
-    box-shadow: 0px 0px 20px 0px rgba(249, 91, 212, 0.307);
     transform: scale(0.95);
 }
 
 label{
     color: black;
+    font-weight: 600;
 }
 
 .formBox div.tDuration {
@@ -89,7 +93,7 @@ label{
     justify-content: space-between;
 }
 
-.formBox div.tDuration div{
+.formBox div.tDuration div, #DOBox{
     display: flex;
     flex-direction: column;
     flex-basis: 48%;
@@ -117,5 +121,28 @@ label{
 .cvDisplay{
     flex-basis: 50%;
     background-color: aqua;
+}
+
+.remove{
+    width: 100%;
+}
+
+.remove button{
+    float: right;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.remove button:hover {
+    background-color: red;
+}
+
+.formBox button.add {
+    margin-top: 20px;
+    background-color: rgb(56, 105, 239);
+}
+
+.formBox button.add:hover {
+    background-color: black;
 }
 

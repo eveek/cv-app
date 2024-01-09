@@ -16,9 +16,9 @@
   height: 800px;
   width: 1500px;
   margin: auto;
-  border-radius: 30px;
+  border-radius: 0px;
   background-color: white;
-  box-shadow: 0 0 18px 0px #00000076;
+  box-shadow: 0 0 18px 0px #0000008a;
   box-sizing: border-box;
   display: grid;
   place-items: center;
@@ -54,7 +54,7 @@
   width: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .Two{
@@ -67,9 +67,10 @@
 h1.hOne{
   color: black;
   width: 50%;
-  font-size: 100px;
-  line-height: 80px;
+  font-size: 80px;
+  line-height: 70px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 h1.hOne span {
@@ -84,27 +85,17 @@ h1.hOne span {
   width: 700px;
   background-color: blueviolet;
   right: 350px;
-  background: url(../assets/profileIcon.png) no-repeat;
+  /* background: url(../assets/profileIcon.png) no-repeat; */
+  background: url(../assets/handshake.png) no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.lImg2{
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: blueviolet;
-  top: 100px;
-  left: 100px;
-  border-radius: 50%;
-  box-shadow: 0 0 28px 2px #00000033, inset 0 0 40px 15px rgba(249, 91, 212, 0.542);
-  
+  transform: scaleX(-1)
 }
 
 button.lBtn{
-  padding: 25px;
-  font-size: 25px;
-  border-radius: 0px 30px 0px 30px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 0px;
   background-image: linear-gradient(to right, rgb(56, 105, 239), rgb(249, 91, 212));
   font-weight: 600;
   border: none;
@@ -113,7 +104,6 @@ button.lBtn{
 }
 
 button.lBtn:hover{
-  box-shadow: 0px 0px 20px 0px rgba(249, 91, 212, 0.307);
   transform: scale(0.95);
 }
 
@@ -127,6 +117,7 @@ button.lBtn:hover{
   animation: swing ease-in-out 1s infinite alternate;
   transform-origin: center -20px;
   float: left;
+  transform: scaleX(-1)
   /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); */
 }
 
