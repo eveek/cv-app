@@ -146,11 +146,6 @@ label{
     flex-basis: 48%;
 }
 
-.cvDisplay{
-    flex-basis: 50%;
-    background-color: aqua;
-}
-
 .remove{
     width: 100%;
 }

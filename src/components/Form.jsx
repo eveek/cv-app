@@ -7,7 +7,6 @@ const style = {
         borderTop: '1px solid  rgb(56, 105, 239)'
     }
 
-let skillCount = 0
 
 class Form extends React.Component {
     constructor(props) {
@@ -55,10 +54,6 @@ class Form extends React.Component {
                     skill: ''
                 }
             ],
-            newSkil: {
-                id: uuidv4(),
-                skill: ''
-            },
             education: [
                 {
                     id: uuidv4(),
@@ -68,31 +63,16 @@ class Form extends React.Component {
                     end: ''
                 }
             ],
-            newEducation: {
-                id: uuidv4(),
-                school: '',
-                degree: '',
-                start: '',
-                end: ''
-            },
             work: [
                 {
                     id: uuidv4(),
                     company: '',
                     position: '',
-                    responsilility: '',
+                    responsibility: '',
                     start: '',
                     end: ''
                 },
             ],
-            newWork: {
-                id: uuidv4(),
-                company: '',
-                position: '',
-                responsilility: '',
-                start: '',
-                end: ''
-            }
         }
         this.handlePersonalChange = this.handlePersonalChange.bind(this)
         this.handleEducationChange = this.handleEducationChange.bind(this)
@@ -100,6 +80,12 @@ class Form extends React.Component {
         this.handleProfileChange = this.handleProfileChange.bind(this)
         this.handleContactChange = this.handleContactChange.bind(this)
         this.handleSkillChange = this.handleSkillChange.bind(this)
+        this.handleWorkAdd = this.handleWorkAdd.bind(this)
+        this.handleEducationAdd = this.handleEducationAdd.bind(this)
+        this.handleSkillAdd = this.handleSkillAdd.bind(this)
+        this.removeWork = this.removeWork.bind(this)
+        this.removeEducation = this.removeEducation.bind(this)
+        this.removeSkill = this.removeSkill.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
     handleEducationChange(event) {
@@ -193,7 +179,68 @@ class Form extends React.Component {
         this.setState({
             ...this.state, profile: newProfil
         }) 
+    }
 
+    handleWorkAdd(event) {
+        event.preventDefault()
+        this.setState({
+            work: this.state.work.concat({
+                id: uuidv4(),
+                company: '',
+                position: '',
+                responsibility: '',
+                start: '',
+                end: ''
+            })
+        })
+    }
+    handleEducationAdd(event) {
+        event.preventDefault()
+        this.setState({
+            education: this.state.education.concat({
+                id: uuidv4(),
+                school: '',
+                degree: '',
+                start: '',
+                end: ''
+            })
+        })
+    }
+    handleSkillAdd(event) {
+        event.preventDefault()
+        this.setState({
+            skills: this.state.skills.concat({id: uuidv4(), skill: ''})
+        })
+    }
+
+    removeWork(event,index) {
+        event.preventDefault()
+        const list = [...this.state.work]
+        list.splice(index, 1)
+
+        this.setState({
+            work: list
+        })
+    }
+
+    removeEducation(event, index) {
+        event.preventDefault()
+        const list = [...this.state.education]
+        list.splice(index, 1)
+
+        this.setState({
+            education: list
+        })
+    }
+
+    removeSkill(event, index) {
+        event.preventDefault()
+        const list = [...this.state.skills]
+        list.splice(index, 1)
+
+        this.setState({
+            skills: list
+        })
     }
 
 
@@ -211,11 +258,11 @@ class Form extends React.Component {
                         <fieldset id='personal'>
                         <legend>Personal Information</legend>
                         <div className='half'>
-                            <input onChange={this.handlePersonalChange} type="text"  name='firstname' placeholder='Firstname' value={this.state.personal[0].firstname}/>
-                            <input onChange={this.handlePersonalChange} type="text"  name='lastname' placeholder='Lastname' value={this.state.personal[1].lastname}/>
+                            <input autoComplete="off" onChange={this.handlePersonalChange} type="text"  name='firstname' placeholder='Firstname' value={this.state.personal[0].firstname}/>
+                            <input autoComplete="off" onChange={this.handlePersonalChange} type="text"  name='lastname' placeholder='Lastname' value={this.state.personal[1].lastname}/>
                         </div>
                         <div>
-                            <input type="text"onChange={this.handlePersonalChange} name="profession" placeholder="Professional Title" value={this.state.personal[2].profession} />
+                            <input autoComplete="off" type="text"onChange={this.handlePersonalChange} name="profession" placeholder="Professional Title" value={this.state.personal[2].profession} />
                         </div>
                         </fieldset>
                         <fieldset id="profile">
@@ -231,29 +278,31 @@ class Form extends React.Component {
                                 return (
                                     <div key={index} style={index ? style : null}>
                                         {
-                                            index ? <div className="remove"><button>&times; Remove</button></div> : ""
+                                            index ? <div onClick={(e) => this.removeEducation(e, index)} className="remove"><button>&times; Remove</button></div> : ""
                                         }
                                         <div>
-                                            <input onChange={this.handleEducationChange} type="text" name="nameOfSchool" id={item.id} placeholder='School' value={item.school}/>
+                                            <input autoComplete="off" onChange={this.handleEducationChange} type="text" name="school" id={item.id} placeholder='School' value={item.school}/>
                                         </div>
                                         <div>
-                                            <input onChange={this.handleEducationChange} type="text" name="titleOfStudy" id={item.id} placeholder='Degree' value={item.degree}/>
+                                            <input autoComplete="off" onChange={this.handleEducationChange} type="text" name="degree" id={item.id} placeholder='Degree' value={item.degree}/>
                                         </div>
                                         <div className='tDuration'>
                                             <div>
                                             <label htmlFor="stdDurationFrom">Start</label>
-                                            <input onChange={this.handleEducationChange} type="month" name="start" id={item.id} value={item.start}/>
+                                            <input autoComplete="off" onChange={this.handleEducationChange} type="month" name="start" id={item.id} value={item.start}/>
                                             </div>
                                             <div>
                                             <label htmlFor="stdDurationTo">End</label>
-                                            <input onChange={this.handleEducationChange} type="month" name="end" id={item.id} value={item.end}/>
+                                            <input autoComplete="off" onChange={this.handleEducationChange} type="month" name="end" id={item.id} value={item.end}/>
                                             </div>
                                         </div>
                                     </div>
                                 )
                             })}
                         </div >
-                        <button className="add">+ Add More Education</button>
+                        {
+                            this.state.education.length < 3 ? <button onClick={this.handleEducationAdd} className="add">+ Add More Education</button> : ''
+                        }
                         </fieldset>
                         <fieldset>
                         <legend>Work Experience</legend>
@@ -263,62 +312,62 @@ class Form extends React.Component {
                                 return (
                                     <div key={index} style={index ? style : null}>
                                         {
-                                            index ? <div className="remove"><button>&times; Remove</button></div> : ""
+                                            index ? <div onClick={(e) => this.removeWork(e, index)} id={index} className="remove"><button>&times; Remove</button></div> : ""
                                         }
                                         <div>
-                                            <div><input onChange={this.handleWorkChange} type="text" name="company" id={item.id} placeholder='Company' value={item.nameOfCompany}/></div>
-                                            <div><input onChange={this.handleWorkChange} type="text" name="position" id={item.id} placeholder='Position' value={item.positionTitle}/></div>
-                                            <div><input onChange={this.handleWorkChange} type="text" name="responsibility" id={item.id} placeholder='Responsibility' value={item.responsilility}/></div>
+                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="company" id={item.id} placeholder='Company' value={item.nameOfCompany}/></div>
+                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="position" id={item.id} placeholder='Position' value={item.positionTitle}/></div>
+                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="responsibility" id={item.id} placeholder='Responsibility' value={item.responsibility}/></div>
                                         </div>
                                         <div className='tDuration'>
                                             <div>
                                             <label htmlFor="prtDurationFrom">Start</label>
-                                            <input onChange={this.handleWorkChange} type="month" name="start" id={item.id} value={item.start}/>
+                                            <input autoComplete="off" onChange={this.handleWorkChange} type="month" name="start" id={item.id} value={item.start}/>
                                             </div>
                                             <div>
                                             <label htmlFor="prtDurationTo">End</label>
-                                            <input onChange={this.handleWorkChange} type="month" name="end" id={item.id} value={item.end}/>
+                                            <input autoComplete="off" onChange={this.handleWorkChange} type="month" name="end" id={item.id} value={item.end}/>
                                             </div>
                                         </div>
                                     </div>
                                 )
                             })}
                         </div>
-                        <button className="add">+ Add More Work Experience</button>
+                        {
+                            this.state.work.length < 3 ? <button className="add" onClick={this.handleWorkAdd}>+ Add More Work Experience</button> : ''
+                        }
                         </fieldset>
                         <fieldset id="skill">
                             <legend>Skills</legend>
                             {this.state.skills.map((skill, index) => {
-                                {
-                                    skillCount = index
-                                }
+
                                 return (
                                     <div key={index}>
                                         <div className="skillFlex">
-                                            <input onChange={this.handleSkillChange} type="text" name="skill" id={skill.id} value={skill.skill} placeholder="Skill"/>
+                                            <input autoComplete="off" onChange={this.handleSkillChange} type="text" name="skill" id={skill.id} value={skill.skill} placeholder="Skill"/>
                                             {
-                                                index ? <div className="remove"><button>&times;</button></div> : ""
+                                                index ? <div className="remove"><button onClick={(e) => this.removeSkill(e, index)}>&times;</button></div> : ""
                                             }
                                         </div>
                                     </div>
                                 )
                             })}
                             {
-                                skillCount < 2 ?  <button className="add">+ Add Skill</button> : ''
+                                this.state.skills.length < 6 ?  <button onClick={this.handleSkillAdd} className="add">+ Add More Skill</button> : ''
                             }
                         </fieldset>
                         <fieldset id="contact">
                             <legend>Contact</legend>
                             <div className='half'>
-                                <input onChange={this.handleContactChange} type="number" name='phone' placeholder='Phone' value={this.state.contact[0].text}/>
-                                <input onChange={this.handleContactChange} type="email"  name="email" placeholder='Email'value={this.state.contact[1].text}/>
+                                <input autoComplete="off" onChange={this.handleContactChange} type="number" name='phone' placeholder='Phone' value={this.state.contact[0].text}/>
+                                <input autoComplete="off" onChange={this.handleContactChange} type="email"  name="email" placeholder='Email'value={this.state.contact[1].text}/>
                         </div>
                         <div>
-                            <input onChange={this.handleContactChange} type="text" id='fLocation' name="address" placeholder='Address' value={this.state.contact[2].text}/>
+                            <input autoComplete="off" onChange={this.handleContactChange} type="text" id='fLocation' name="address" placeholder='Address' value={this.state.contact[2].text}/>
                         </div>
                         </fieldset>
                     </div>
-                    <div id="fSubmit"><button id='formSubmit'>Submit</button></div>
+                    <div id="fSubmit"><button onClick={this.handleSubmit} id='formSubmit'>Submit</button></div>
                 </form>
             </div>
             </>

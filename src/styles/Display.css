@@ -1,0 +1,86 @@
+@font-face {
+    font-family: balginBold;
+    src: url(../assets/font/Fontspring-DEMO-balgin-light.otf);
+}
+
+@font-face {
+    font-family: balginLight;
+    src: url(../assets/font/Fontspring-DEMO-balgin-extralight.otf);
+}
+
+:root {
+    --grey: rgb(219, 218, 218);
+}
+
+.cvDisplay {
+    flex-basis: 50%;
+    /* background-color: aqua; */
+    display: grid;
+    place-items: center;
+    font-family: balginLight;
+    color: black;
+}
+
+#cvPaper {
+    margin: auto;
+    height: 650px;
+    width: 460.42px;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.382);
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 120px 1fr;
+    gap: 0px;
+}
+
+.div1 {
+    /* background-color: red; */
+    grid-area: 1 / 1 / 1 / -1 ;
+    padding-bottom: 20px;    
+}
+
+.div1 h1 {
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.div1 h1 span {
+    font-family: balginBold;
+}
+
+.cvDisplay p {
+    font-size: 8px;
+    padding-right: 30px;
+}
+
+.cvDisplay h2 {
+    text-align: left;
+    letter-spacing: 5px;
+    font-family: balginBold;
+    font-size: 11px;
+    margin: 0px;
+}
+
+.cvDisplay .div1 .title h2 {
+    text-align: center;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+    padding: 5px 0px;
+}
+
+.div2 {
+    /* background-color: blue; */
+    grid-area: 2 / 1 / 2 / 3;
+    border-right: 1px solid var(--grey);
+}
+
+.div3 {
+    /* background-color: green; */
+    grid-area: 2 / 3 / 2 / -1;
+}
