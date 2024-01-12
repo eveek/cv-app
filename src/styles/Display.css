@@ -27,6 +27,7 @@
     width: 460.42px;
     background-color: white;
     padding: 30px;
+    padding-bottom: 40px;
     box-sizing: border-box;
     box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.382);
 }
@@ -34,7 +35,7 @@
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 120px 1fr;
+    grid-template-rows: 110px 1fr;
     gap: 0px;
 }
 
@@ -45,7 +46,7 @@
 }
 
 .div1 h1 {
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     letter-spacing: 5px;
 }
@@ -57,14 +58,37 @@
 .cvDisplay p {
     font-size: 8px;
     padding-right: 30px;
+    text-align: justify;
+    width: 100%;
 }
 
 .cvDisplay h2 {
     text-align: left;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
     font-family: balginBold;
-    font-size: 11px;
+    font-size: 8px;
     margin: 0px;
+}
+
+.cvDisplay ul li {
+    font-size: 8px;
+    margin-top: 5px;
+}
+
+.cvDisplay ul {
+    padding: 0px;
+    padding-top: 5px;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cvDisplay h3, .cvDisplay ul li {
+    font-size: 6px;
+    font-family: balginBold;
 }
 
 .cvDisplay .div1 .title h2 {
@@ -78,9 +102,50 @@
     /* background-color: blue; */
     grid-area: 2 / 1 / 2 / 3;
     border-right: 1px solid var(--grey);
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div3 .companyName {
+    display: flex;
+    justify-content: space-between;
 }
 
 .div3 {
     /* background-color: green; */
     grid-area: 2 / 3 / 2 / -1;
+    padding-left: 20px;
+}
+
+.cvDisplay .div3 ul {
+    list-style: circle;
+    padding-left: 10px;
+    display: block;
+    padding-top: 0px;
+}
+
+.cvDisplay .div3 ul li p {
+    font-family: balginLight;
+    text-align: left;
+}
+
+.cvDisplay .div3 .resp p {
+    margin: 0px;
+} 
+
+.cvDisplay .wrkExp {
+    margin-bottom: 30px;
+    margin-top: 3px;
+}
+
+.div3 #wrkList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div3 #wrkList div.wrkExp:last-child {
+    margin-bottom: 0px;
 }
