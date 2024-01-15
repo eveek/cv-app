@@ -20,6 +20,17 @@
     /* background-color: blueviolet; */
 }
 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
 button {
     border: 0px;
     outline: 0px;

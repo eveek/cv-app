@@ -1,11 +1,13 @@
 import React from "react"
 import { v4 as uuidv4 } from 'uuid'
 
-const style = {
-        marginTop: '20px',
-        paddingTop: '20px',
-        borderTop: '1px solid  rgb(56, 105, 239)'
-    }
+
+import Personal from "./personal"
+import Profile from "./profile"
+import Education from "./education"
+import Work from "./work"
+import Skills from "./skills"
+import Contact from "./contact"
 
 
 class Form extends React.Component {
@@ -250,124 +252,46 @@ class Form extends React.Component {
     }
 
     render() {
+        const {personal, profile, education, work, skills, contact} = this.state
         return (
             <>
                 <div className='formBox'>
                 <form action="">
                     <div id="formScroll">
-                        <fieldset id='personal'>
-                        <legend>Personal Information</legend>
-                        <div className='half'>
-                            <input autoComplete="off" onChange={this.handlePersonalChange} type="text"  name='firstname' placeholder='Firstname' value={this.state.personal[0].firstname}/>
-                            <input autoComplete="off" onChange={this.handlePersonalChange} type="text"  name='lastname' placeholder='Lastname' value={this.state.personal[1].lastname}/>
-                        </div>
-                        <div>
-                            <input autoComplete="off" type="text"onChange={this.handlePersonalChange} name="profession" placeholder="Professional Title" value={this.state.personal[2].profession} />
-                        </div>
-                        </fieldset>
-                        <fieldset id="profile">
-                            <legend>Profile</legend>
-                            <div>
-                                <textarea onChange={this.handleProfileChange} name="about" cols="30" rows="10" value={this.state.profile[0].text} placeholder="About yourself"></textarea>
-                            </div>
-                        </fieldset>
-                        <fieldset id='education'>
-                        <legend>Education</legend>
-                        <div id="eduBox">
-                            {this.state.education.map((item, index) => {
-                                return (
-                                    <div key={index} style={index ? style : null}>
-                                        {
-                                            index ? <div onClick={(e) => this.removeEducation(e, index)} className="remove"><button>&times; Remove</button></div> : ""
-                                        }
-                                        <div>
-                                            <input autoComplete="off" onChange={this.handleEducationChange} type="text" name="school" id={item.id} placeholder='School' value={item.school}/>
-                                        </div>
-                                        <div>
-                                            <input autoComplete="off" onChange={this.handleEducationChange} type="text" name="degree" id={item.id} placeholder='Degree' value={item.degree}/>
-                                        </div>
-                                        <div className='tDuration'>
-                                            <div>
-                                            <label htmlFor="stdDurationFrom">Start</label>
-                                            <input autoComplete="off" onChange={this.handleEducationChange} type="month" name="start" id={item.id} value={item.start}/>
-                                            </div>
-                                            <div>
-                                            <label htmlFor="stdDurationTo">End</label>
-                                            <input autoComplete="off" onChange={this.handleEducationChange} type="month" name="end" id={item.id} value={item.end}/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </div >
-                        {
-                            this.state.education.length < 3 ? <button onClick={this.handleEducationAdd} className="add">+ Add More Education</button> : ''
-                        }
-                        </fieldset>
-                        <fieldset>
-                        <legend>Work Experience</legend>
-                        <div id="workBox">
-                            {this.state.work.map((item, index) => {
-                            
-                                return (
-                                    <div key={index} style={index ? style : null}>
-                                        {
-                                            index ? <div onClick={(e) => this.removeWork(e, index)} id={index} className="remove"><button>&times; Remove</button></div> : ""
-                                        }
-                                        <div>
-                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="company" id={item.id} placeholder='Company' value={item.nameOfCompany}/></div>
-                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="position" id={item.id} placeholder='Position' value={item.positionTitle}/></div>
-                                            <div><input autoComplete="off" onChange={this.handleWorkChange} type="text" name="responsibility" id={item.id} placeholder='Responsibility' value={item.responsibility}/></div>
-                                        </div>
-                                        <div className='tDuration'>
-                                            <div>
-                                            <label htmlFor="prtDurationFrom">Start</label>
-                                            <input autoComplete="off" onChange={this.handleWorkChange} type="month" name="start" id={item.id} value={item.start}/>
-                                            </div>
-                                            <div>
-                                            <label htmlFor="prtDurationTo">End</label>
-                                            <input autoComplete="off" onChange={this.handleWorkChange} type="month" name="end" id={item.id} value={item.end}/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        {
-                            this.state.work.length < 3 ? <button className="add" onClick={this.handleWorkAdd}>+ Add More Work Experience</button> : ''
-                        }
-                        </fieldset>
-                        <fieldset id="skill">
-                            <legend>Skills</legend>
-                            {this.state.skills.map((skill, index) => {
-
-                                return (
-                                    <div key={index}>
-                                        <div className="skillFlex">
-                                            <input autoComplete="off" onChange={this.handleSkillChange} type="text" name="skill" id={skill.id} value={skill.skill} placeholder="Skill"/>
-                                            {
-                                                index ? <div className="remove"><button onClick={(e) => this.removeSkill(e, index)}>&times;</button></div> : ""
-                                            }
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                            {
-                                this.state.skills.length < 6 ?  <button onClick={this.handleSkillAdd} className="add">+ Add More Skill</button> : ''
-                            }
-                        </fieldset>
-                        <fieldset id="contact">
-                            <legend>Contact</legend>
-                            <div className='half'>
-                                <input autoComplete="off" onChange={this.handleContactChange} type="number" name='phone' placeholder='Phone' value={this.state.contact[0].text}/>
-                                <input autoComplete="off" onChange={this.handleContactChange} type="email"  name="email" placeholder='Email'value={this.state.contact[1].text}/>
-                        </div>
-                        <div>
-                            <input autoComplete="off" onChange={this.handleContactChange} type="text" id='fLocation' name="address" placeholder='Address' value={this.state.contact[2].text}/>
-                        </div>
-                        </fieldset>
+                        <Personal 
+                        personal={personal} 
+                        onChange={this.handlePersonalChange}
+                        />
+                        <Profile 
+                        profile={profile} 
+                        onChange={this.handleProfileChange}
+                        />
+                        <Education 
+                        education={education} 
+                        onChange={this.handleEducationChange} 
+                        removeExp={this.removeEducation}
+                        addExp={this.handleEducationAdd}
+                        />
+                        <Work
+                        work={work}
+                        onChange={this.handleWorkChange}
+                        removeWork={this.removeWork}
+                        addWork={this.handleWorkAdd}
+                        />
+                        <Skills
+                        skills={skills}
+                        onChange={this.handleSkillChange}
+                        removeSkill={this.removeSkill}
+                        addSkill={this.handleSkillAdd}
+                        />
+                        <Contact
+                        contact={contact}
+                        onChange={this.handleContactChange}
+                        />  
                     </div>
-                    <div id="fSubmit"><button onClick={this.handleSubmit} id='formSubmit'>Submit</button></div>
+                    <div id="fSubmit">
+                        <button onClick={this.handleSubmit} id='formSubmit'>Submit</button>
+                        </div>
                 </form>
             </div>
             </>
