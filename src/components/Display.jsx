@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 
 
-function Display () {
+function Display ({personal, profile, education, work, skills, contact}) {
 
     return (
         <>
@@ -8,45 +9,42 @@ function Display () {
                 <div id="cvPaper" className="parent">
                     <div className="div1">
                         <div>
-                            <h1>SOPHIE <span>CLARKE</span></h1>
+                            <h1>{personal[0].text} <span>{personal[1].text}</span></h1>
                         </div>
-                        <div className="title"><h2>PROFESSIONAL @TITLE</h2></div>
+                        <div className="title"><h2>{personal[2].text}</h2></div>
                     </div>
                     <div className="div2">
                         <div>
                             <h2>PROFILE</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates dolore nisi voluptatum! Ut sapiente, modi alias facere sunt illum amet doloribus officiis nemo quos numquam repudiandae voluptatibus ipsum asperiores dolorum.</p>
+                            <p>{profile[0].text}</p>
                         </div>
                         <div>
                             <h2>CONTACT</h2>
-                            <div><p>57 Flower lane, Lagos, Nigeria</p></div>
-                            <div><p>justChecking@gmail.com</p></div>
-                            <div><p>+23487635728</p></div>
+                            <div><p>{contact[2].text}</p></div>
+                            <div><p>{contact[1].text}</p></div>
+                            <div><p>{contact[0].text}</p></div>
                         </div>
                         <div>
                             <h2>EDUCATIONAL</h2>
-                            <div>
-                                <h3>ENTER YOUR DEGREE</h3>
-                                <p>New York University <br />2002 - 2008</p>
-                            </div>
-                            <div>
-                                <h3>ENTER YOUR DEGREE</h3>
-                                <p>New York University <br />2002 - 2008</p>
-                            </div>
+                            {education.map(edu => {
+                                return (
+                                    <div key={edu.id}>
+                                        <h3>{edu.degree}</h3>
+                                        <p>{edu.school} <br />{edu.start} - {edu.stop}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
                         <div>
                             <h2>SKILLS</h2>
                             <div>
                                 <ul>
                                     <div>
-                                        <li>WEB DESIGN</li>
-                                        <li>PHOTOGRAPHY</li>
-                                        <li>SOCIAL MEDIA</li>
-                                    </div>
-                                    <div>
-                                        <li>PUBLIC SPEAKING</li>
-                                        <li>PHOTOGRAPHY</li>
-                                        <li>GRAPHIC DESIGN</li>
+                                        {skills.map(skill => {
+                                            return (
+                                                <li key={skill.id}>{skill.skill}</li>
+                                            )
+                                        })}
                                     </div>
                                 </ul>
                             </div>
@@ -56,72 +54,24 @@ function Display () {
                         <div>
                             <h2>WORK EXPERIENCE</h2>
                             <div id="wr">
-                                <div className="wrkExp">
-                                    <div className="companyName">
-                                        <h3>ENTER YOUR POSITION HERE</h3>
-                                        <h3>2019 - Present</h3>
-                                    </div>
-                                    <div>
-                                        <p className="faint">Company name, location</p>
-                                        <div className="resp">
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sed similique in et quo nihil accusantium, impedit nostrum provident exercitationem.
-                                            </p>
-                                            <ul>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                            </ul>
+                                {work.map(wrk => {
+                                    return (
+                                        <div key={wrk.id} className="wrkExp">
+                                            <div className="companyName">
+                                                <h3>{wrk.position}</h3>
+                                                <h3>{wrk.start} - {wrk.stop}</h3>
+                                            </div>
+                                            <div>
+                                                <p className="faint">{wrk.company}</p>
+                                                <div className="resp">
+                                                    <p>
+                                                        {wrk.responsibility}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="wrkExp">
-                                    <div className="companyName">
-                                        <h3>ENTER YOUR POSITION HERE</h3>
-                                        <h3>2019 - Present</h3>
-                                    </div>
-                                    <div>
-                                        <p className="faint">Company name, location</p>
-                                        <div className="resp">
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sed similique in et quo nihil accusantium, impedit nostrum provident exercitationem.
-                                            </p>
-                                            <ul>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="wrkExp">
-                                    <div className="companyName">
-                                        <h3>ENTER YOUR POSITION HERE</h3>
-                                        <h3>2019 - Present</h3>
-                                    </div>
-                                    <div>
-                                        <p className="faint">Company name, location</p>
-                                        <div className="resp">
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sed similique in et quo nihil accusantium, impedit nostrum provident exercitationem.
-                                            </p>
-                                            <ul>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                                <li>
-                                                    <p>Ensured that every website wa deligently accordingly</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                    )
+                                })}
                             </div>
                         </div>
                         <div></div>
@@ -130,6 +80,15 @@ function Display () {
             </div>
         </>
     )
+}
+
+Display.propTypes = {
+    personal: PropTypes.array,
+    profile: PropTypes.array,
+    contact: PropTypes.array,
+    work: PropTypes.array,
+    education: PropTypes.array,
+    skills: PropTypes.array
 }
 
 export default Display

@@ -180,3 +180,13 @@ label{
     background-color: black;
 }
 
+@media screen and (max-width: 1240px) {
+    .pageTwo {
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .formBox form #formScroll {
+        height: fit-content;
+    }
+}
