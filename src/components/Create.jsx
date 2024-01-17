@@ -256,55 +256,50 @@ class Create extends React.Component {
         const {personal, profile, education, work, skills, contact} = this.state
         return (
             <>
-                <>
-                    <div className='formBox'>
-                    <form action="">
-                        <div id="formScroll">
-                            <Personal
-                            personal={personal}
-                            onChange={this.handlePersonalChange}
-                            />
-                            <Profile
-                            profile={profile}
-                            onChange={this.handleProfileChange}
-                            />
-                            <Education
-                            education={education}
-                            onChange={this.handleEducationChange}
-                            removeExp={this.removeEducation}
-                            addExp={this.handleEducationAdd}
-                            />
-                            <Work
-                            work={work}
-                            onChange={this.handleWorkChange}
-                            removeWork={this.removeWork}
-                            addWork={this.handleWorkAdd}
-                            />
-                            <Skills
-                            skills={skills}
-                            onChange={this.handleSkillChange}
-                            removeSkill={this.removeSkill}
-                            addSkill={this.handleSkillAdd}
-                            />
-                            <Contact
-                            contact={contact}
-                            onChange={this.handleContactChange}
-                            />
-                        </div>
-                        <div id="fSubmit">
-                            <button onClick={this.handleSubmit} id='formSubmit'>Submit</button>
-                            </div>
-                    </form>
+                <div className='formBox'>
+                <form action="">
+                    <div id="formScroll">
+                        <Personal
+                        personal={personal}
+                        onChange={this.handlePersonalChange}
+                        />
+                        <Profile
+                        profile={profile}
+                        onChange={this.handleProfileChange}
+                        />
+                        <Education
+                        education={education}
+                        onChange={this.handleEducationChange}
+                        removeExp={this.removeEducation}
+                        addExp={this.handleEducationAdd}
+                        />
+                        <Work
+                        work={work}
+                        onChange={this.handleWorkChange}
+                        removeWork={this.removeWork}
+                        addWork={this.handleWorkAdd}
+                        />
+                        <Skills
+                        skills={skills}
+                        onChange={this.handleSkillChange}
+                        removeSkill={this.removeSkill}
+                        addSkill={this.handleSkillAdd}
+                        />
+                        <Contact
+                        contact={contact}
+                        onChange={this.handleContactChange}
+                        />
                     </div>
-                    <Display
-                    personal={personal}
-                    profile={profile}
-                    education={education}
-                    work={work}
-                    skills={skills}
-                    contact={contact}
-                    />
-                </>
+                </form>
+                </div>
+                <Display
+                personal={personal}
+                profile={profile}
+                education={education}
+                work={work}
+                skills={skills}
+                contact={contact}
+                />
             </>
         )
     }

@@ -160,6 +160,12 @@ button.lBtn:hover{
   }
 }
 
+@media screen and (max-width: 670px) {
+  .page {
+    padding: 0 30px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .One .hOne {
     font-size: 70px;

@@ -149,3 +149,11 @@
 .div3 #wrkList div.wrkExp:last-child {
     margin-bottom: 0px;
 }
+
+@media screen and (max-width: 513px) {
+    #cvPaper {
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+}

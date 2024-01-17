@@ -20,6 +20,10 @@
     /* background-color: blueviolet; */
 }
 
+.formBox #formScroll::-webkit-scrollbar {
+    display: none;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -183,10 +187,32 @@ label{
 @media screen and (max-width: 1240px) {
     .pageTwo {
         flex-direction: column;
-        overflow-y: scroll;
+        overflow-x: scroll;
     }
 
     .formBox form #formScroll {
         height: fit-content;
+    }
+
+    .formBox {
+        margin-bottom: 70px;
+    }
+
+    .pageTwo::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .formBox {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .formBox fieldset div.half, 
+    .formBox div.tDuration{
+        flex-direction: column;
+        gap: 10px;
     }
 }
