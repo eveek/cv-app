@@ -49,7 +49,7 @@ button {
 
 .formBox form #formScroll {
     overflow-y: scroll;
-    height: 620px;
+    /* height: 620px; */
 }
 
 .formBox button {
@@ -184,6 +184,27 @@ label{
     background-color: black;
 }
 
+.checkBox {
+    color: black;
+    font-weight: 600;
+    display: flex;
+}
+
+.checkBox input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: rgb(56, 105, 239);
+}
+
+div[disabled] {
+    pointer-events: none;
+    cursor: not-allowed !important;
+    /* opacity: 0.5; */
+    filter: grayscale(0.7);
+    cursor: not-allowed;
+}
+
 @media screen and (max-width: 1240px) {
     .pageTwo {
         flex-direction: column;
@@ -193,19 +214,15 @@ label{
     .formBox form #formScroll {
         height: fit-content;
     }
-
+    
     .formBox {
         margin-bottom: 70px;
+        margin-right: 0;
+        height: fit-content;
     }
 
     .pageTwo::-webkit-scrollbar {
         display: none;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .formBox {
-        margin: 0;
     }
 }
 

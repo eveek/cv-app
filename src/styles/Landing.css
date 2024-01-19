@@ -137,7 +137,23 @@ button.lBtn:hover{
   }
 }
 
-@media screen and (max-width: 1480px){
+@media screen and (max-width: 1480px) {
+  .One .hOne {
+    font-size: 70px;
+  }
+
+  .lImg {
+    width: 600px;
+    height: 600px;
+  }
+
+  .Two {
+    display: flex;
+    justify-content: flex-end;
+  }
+} 
+
+@media screen and (max-width: 1300px){
   .Two {
     display: none;
   }

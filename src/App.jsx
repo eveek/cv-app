@@ -5,7 +5,6 @@ import './styles/Display.css'
 import Landing from './components/Landing'
 import Create from './components/Create'
 
-
 function App() {
 
 

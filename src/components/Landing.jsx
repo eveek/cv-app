@@ -21,9 +21,9 @@ function Landing () {
             >Create your CV</button>
         </div>
         <div className='Two'>
-        <div className="swing">
-            <div className="lImg"></div>
-        </div>
+            <div className="swing">
+                <div className="lImg"></div>
+            </div>
         </div>
     </div>
     </>

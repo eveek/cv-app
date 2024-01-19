@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
 
+
+const iconStyle = {color: ' rgb(145, 144, 144)', width: '10px'}
 
 function Display ({personal, profile, education, work, skills, contact}) {
 
     return (
         <>
             <div className='cvDisplay'>
-                <div id="cvPaper" className="parent">
+                <div id="cvPaper" className="parent" size='A4'>
                     <div className="div1">
                         <div>
                             <h1>{personal[0].text == '' ? 'FIRST ' : personal[0].text} 
@@ -24,12 +30,12 @@ function Display ({personal, profile, education, work, skills, contact}) {
                         </div>
                         <div>
                             <h2>CONTACT</h2>
-                            <div><p>{contact[2].text == '' ? '67 NEW YORK ROAD, LAGOS, NIGERIA' : contact[2].text}</p></div>
-                            <div><p>{contact[1].text == '' ? 'YOUREMALI@GMAIL.COM': contact[1].text}</p></div>
-                            <div><p>{contact[0].text == '' ? '+234 85797533' : contact[0].text}</p></div>
+                            <div className='icon'><FontAwesomeIcon icon={faLocationDot} style={iconStyle} /><p>{contact[2].text == '' ? '67 NEW YORK ROAD, LAGOS, NIGERIA' : contact[2].text}</p></div>
+                            <div className='icon'><FontAwesomeIcon icon={faEnvelope} style={iconStyle} /><p>{contact[1].text == '' ? 'YOUREMALI@GMAIL.COM': contact[1].text}</p></div>
+                            <div className='icon'><FontAwesomeIcon icon={faPhone} style={iconStyle} /><p>{contact[0].text == '' ? '+234 85797533' : contact[0].text}</p></div>
                         </div>
                         <div>
-                            <h2>EDUCATIONAL</h2>
+                            <h2>EDUCATION</h2>
                             {education.map(edu => {
 
                                 return (
@@ -47,7 +53,14 @@ function Display ({personal, profile, education, work, skills, contact}) {
                                     <div>
                                         {skills.map(skill => {
                                             return (
-                                                <li key={skill.id}>{skill.skill}</li>
+                                                <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
+                                            )
+                                        })}
+                                    </div>
+                                    <div>
+                                        {skills.map(skill => {
+                                            return (
+                                                <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
                                             )
                                         })}
                                     </div>
@@ -64,13 +77,13 @@ function Display ({personal, profile, education, work, skills, contact}) {
                                         <div key={wrk.id} className="wrkExp">
                                             <div className="companyName">
                                                 <h3>{wrk.position==''?'POSITION TITLE':wrk.position}</h3>
-                                                <h3>{wrk.start==''?'START':wrk.start} - {wrk.stop==''?'STOP':wrk.stop}</h3>
+                                                <h3>{wrk.start==''?'START':wrk.start} - {wrk.currently?'PRESENT':wrk.stop}</h3>
                                             </div>
                                             <div>
                                                 <p className="faint">{wrk.company==''?'COMPANY NAME':wrk.company}</p>
                                                 <div className="resp">
                                                     <p>
-                                                        {wrk.responsibility==''?'':wrk.responsibility}
+                                                        {wrk.responsibility==''?'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore a voluptates necessitatibus distinctio sapiente sit ducimus labore, vero omnis vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, ducimus.':wrk.responsibility}
                                                     </p>
                                                 </div>
                                             </div>

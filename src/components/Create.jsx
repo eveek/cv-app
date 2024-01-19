@@ -72,6 +72,8 @@ class Create extends React.Component {
                     company: '',
                     position: '',
                     responsibility: '',
+                    currently: true,
+                    disabled: true,
                     start: '',
                     end: ''
                 },
@@ -87,6 +89,7 @@ class Create extends React.Component {
         this.handleEducationAdd = this.handleEducationAdd.bind(this)
         this.handleSkillAdd = this.handleSkillAdd.bind(this)
         this.removeWork = this.removeWork.bind(this)
+        this.currentWork = this.currentWork.bind(this)
         this.removeEducation = this.removeEducation.bind(this)
         this.removeSkill = this.removeSkill.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -111,6 +114,23 @@ class Create extends React.Component {
         const newWrk = this.state.work.map(wrk => {
             if (wrk.id == id) {
                 wrk[name] = value
+                return wrk
+            } else {
+                return wrk
+            }
+        })
+        this.setState({
+            ...this.state, work: newWrk
+        })
+    }
+
+    currentWork(event) {
+        const {id, checked} = event.target
+        const newWrk = this.state.work.map(wrk => {
+            if (wrk.id == id) {
+                wrk['currently'] = checked
+                wrk['disabled'] = checked
+                
                 return wrk
             } else {
                 return wrk
@@ -191,6 +211,8 @@ class Create extends React.Component {
                 id: uuidv4(),
                 company: '',
                 position: '',
+                currently: true,
+                disabled: true,
                 responsibility: '',
                 start: '',
                 end: ''
@@ -276,6 +298,7 @@ class Create extends React.Component {
                         <Work
                         work={work}
                         onChange={this.handleWorkChange}
+                        currentWork={this.currentWork}
                         removeWork={this.removeWork}
                         addWork={this.handleWorkAdd}
                         />

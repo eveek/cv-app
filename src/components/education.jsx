@@ -29,11 +29,11 @@ function Education (props) {
                                 </div>
                                 <div className='tDuration'>
                                     <div>
-                                    <label htmlFor="stdDurationFrom">Start</label>
+                                    <label htmlFor="stdDurationFrom">Start date</label>
                                     <input autoComplete="off" onChange={onChange} type="month" name="start" id={item.id} value={item.start}/>
                                     </div>
                                     <div>
-                                    <label htmlFor="stdDurationTo">End</label>
+                                    <label htmlFor="stdDurationTo">End date</label>
                                     <input autoComplete="off" onChange={onChange} type="month" name="end" id={item.id} value={item.end}/>
                                     </div>
                                 </div>

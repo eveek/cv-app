@@ -1,12 +1,5 @@
-@font-face {
-    font-family: balginBold;
-    src: url(../assets/font/Fontspring-DEMO-balgin-light.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&display=swap');
 
-@font-face {
-    font-family: balginLight;
-    src: url(../assets/font/Fontspring-DEMO-balgin-extralight.otf);
-}
 
 :root {
     --grey: rgb(219, 218, 218);
@@ -14,11 +7,16 @@
 
 .cvDisplay {
     flex-basis: 50%;
-    /* background-color: aqua; */
     display: grid;
     place-items: center;
-    font-family: balginLight;
+    font-family: 'Montserrat', sans-serif;
     color: black;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+.cvDisplay::-webkit-scrollbar {
+    display: none;
 }
 
 #cvPaper {
@@ -28,8 +26,8 @@
     background-color: white;
     padding: 30px;
     padding-bottom: 40px;
-    box-sizing: border-box;
     box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.382);
+    text-transform: uppercase;
 }
 
 .parent {
@@ -40,19 +38,19 @@
 }
 
 .div1 {
-    /* background-color: red; */
     grid-area: 1 / 1 / 1 / -1 ;
     padding-bottom: 20px;    
 }
 
 .div1 h1 {
     font-size: 25px;
+    font-weight: 300;
     text-align: center;
     letter-spacing: 5px;
 }
 
 .div1 h1 span {
-    font-family: balginBold;
+    font-weight: 500;
 }
 
 .cvDisplay p {
@@ -65,7 +63,7 @@
 .cvDisplay h2 {
     text-align: left;
     letter-spacing: 4px;
-    font-family: balginBold;
+    font-family: 'Montserrat', sans-serif;
     font-size: 8px;
     margin: 0px;
 }
@@ -87,8 +85,8 @@
 }
 
 .cvDisplay h3, .cvDisplay ul li {
-    font-size: 6px;
-    font-family: balginBold;
+    font-size: 8px;
+    text-transform: uppercase;
 }
 
 .cvDisplay .div1 .title h2 {
@@ -99,7 +97,6 @@
 }
 
 .div2 {
-    /* background-color: blue; */
     grid-area: 2 / 1 / 2 / 3;
     border-right: 1px solid var(--grey);
     padding-right: 20px;
@@ -114,7 +111,6 @@
 }
 
 .div3 {
-    /* background-color: green; */
     grid-area: 2 / 3 / 2 / -1;
     padding-left: 20px;
 }
@@ -127,7 +123,7 @@
 }
 
 .cvDisplay .div3 ul li p {
-    font-family: balginLight;
+    font-family: 'Montserrat', sans-serif;
     text-align: left;
 }
 
@@ -150,10 +146,21 @@
     margin-bottom: 0px;
 }
 
-@media screen and (max-width: 513px) {
+.icon {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon p {
+    margin: 0;
+    padding-left: 5px;
+}
+
+@media screen and (max-width: 750px) {
     #cvPaper {
+        box-shadow: none;
         width: 100%;
-        height: auto;
         padding: 0;
     }
 }
