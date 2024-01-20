@@ -32,7 +32,7 @@ function Display ({personal, profile, education, work, skills, contact}) {
                             <h2>CONTACT</h2>
                             <div className='icon'><FontAwesomeIcon icon={faLocationDot} style={iconStyle} /><p>{contact[2].text == '' ? '67 NEW YORK ROAD, LAGOS, NIGERIA' : contact[2].text}</p></div>
                             <div className='icon'><FontAwesomeIcon icon={faEnvelope} style={iconStyle} /><p>{contact[1].text == '' ? 'YOUREMALI@GMAIL.COM': contact[1].text}</p></div>
-                            <div className='icon'><FontAwesomeIcon icon={faPhone} style={iconStyle} /><p>{contact[0].text == '' ? '+234 85797533' : contact[0].text}</p></div>
+                            <div className='icon'><FontAwesomeIcon icon={faPhone} style={iconStyle} /><p>{contact[0].text == '' ? '+23485797533' : contact[0].text}</p></div>
                         </div>
                         <div>
                             <h2>EDUCATION</h2>

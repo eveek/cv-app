@@ -65,8 +65,9 @@
 .cvDisplay p {
     font-size: 8px;
     padding-right: 30px;
-    text-align: justify;
+    text-align: left;
     width: 100%;
+    overflow-wrap: break-word;
 }
 
 .cvDisplay h2 {
