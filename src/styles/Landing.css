@@ -162,11 +162,23 @@ button.lBtn:hover{
     align-items: center;
   }
 
+  .pageOne {
+    margin-top: 0;
+  }
+
+  .pageTwo {
+    overflow-x: hidden;
+  }
+
   .One .hOne {
     text-align: center;
     font-size: 80px;
     /* margin-top: 100px; */
     line-height: 80px;
+  }
+
+  .formBox, .cvDisplay {
+    width: 100%;
   }
 }
 

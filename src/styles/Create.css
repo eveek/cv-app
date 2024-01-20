@@ -20,6 +20,10 @@
     /* background-color: blueviolet; */
 }
 
+button {
+    color: white;
+}
+
 .formBox #formScroll::-webkit-scrollbar {
     display: none;
 }
@@ -208,7 +212,7 @@ div[disabled] {
 @media screen and (max-width: 1240px) {
     .pageTwo {
         flex-direction: column;
-        overflow-x: scroll;
+        /* overflow-x: scroll; */
     }
 
     .formBox form #formScroll {

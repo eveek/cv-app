@@ -4,7 +4,7 @@ function Landing () {
 
     function closeLandingPage () {
         const page = document.querySelector(".page");
-        page.style.top = "-1000px"
+        page.style.top = "-950px"
     }
 
 
