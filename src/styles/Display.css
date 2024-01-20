@@ -30,6 +30,14 @@
     text-transform: uppercase;
 }
 
+#cvPaper h3 {
+    color: rgb(145, 144, 144);
+}
+
+.wrkExp p.resp {
+    text-transform: capitalize;
+}
+
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -86,7 +94,6 @@
 
 .cvDisplay h3, .cvDisplay ul li {
     font-size: 8px;
-    text-transform: uppercase;
 }
 
 .cvDisplay .div1 .title h2 {

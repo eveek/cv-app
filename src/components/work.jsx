@@ -42,7 +42,7 @@ function Work (props) {
                             })}
                         </div>
                         {
-                            work.length < 4 ? <button className="add" onClick={addWork}>+ Add More Work Experience</button> : ''
+                            work.length < 3 ? <button className="add" onClick={addWork}>+ Add More Work Experience</button> : ''
                         }
                         </fieldset>
         </>

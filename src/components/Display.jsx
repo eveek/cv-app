@@ -15,7 +15,7 @@ function Display ({personal, profile, education, work, skills, contact}) {
                 <div id="cvPaper" className="parent" size='A4'>
                     <div className="div1">
                         <div>
-                            <h1>{personal[0].text == '' ? 'FIRST ' : personal[0].text} 
+                            <h1>{personal[0].text == '' ? 'FIRST ' : personal[0].text + ' '} 
                             <span>{personal[1].text == '' ? 'LAST' : personal[1].text}</span></h1>
                         </div>
                         <div className="title"><h2>{personal[2].text == '' ? 'PROFESSIONAL TITLE' : personal[2].text}</h2></div>
@@ -41,7 +41,7 @@ function Display ({personal, profile, education, work, skills, contact}) {
                                 return (
                                     <div key={edu.id}>
                                         <h3>{edu.degree == '' ? 'DEGREE' : edu.degree}</h3>
-                                        <p>{edu.school == '' ? 'COMPANY NAME':edu.school} <br />{edu.start == ''?'START':edu.start} - {edu.stop == ''?'STOP':edu.stop}</p>
+                                        <p>{edu.school == '' ? 'COMPANY NAME':edu.school} <br />{edu.start == ''?'START':edu.start} - {edu.end == ''?'STOP':edu.end}</p>
                                     </div>
                                 )
                             })}
@@ -51,17 +51,21 @@ function Display ({personal, profile, education, work, skills, contact}) {
                             <div>
                                 <ul>
                                     <div>
-                                        {skills.map(skill => {
-                                            return (
-                                                <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
-                                            )
+                                        {skills.map((skill, index) => {
+                                            if(index < 3) {
+                                                return (
+                                                    <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
+                                                )
+                                            }
                                         })}
                                     </div>
                                     <div>
-                                        {skills.map(skill => {
-                                            return (
-                                                <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
-                                            )
+                                        {skills.map((skill, index) => {
+                                            if(index > 2) {
+                                                return (
+                                                    <li key={skill.id}>{skill.skill==''?'Skill':skill.skill}</li>
+                                                )
+                                            }
                                         })}
                                     </div>
                                 </ul>
@@ -77,12 +81,12 @@ function Display ({personal, profile, education, work, skills, contact}) {
                                         <div key={wrk.id} className="wrkExp">
                                             <div className="companyName">
                                                 <h3>{wrk.position==''?'POSITION TITLE':wrk.position}</h3>
-                                                <h3>{wrk.start==''?'START':wrk.start} - {wrk.currently?'PRESENT':wrk.stop}</h3>
+                                                <h3>{wrk.start==''?'START':wrk.start} - {wrk.currently?'PRESENT':wrk.end}</h3>
                                             </div>
                                             <div>
                                                 <p className="faint">{wrk.company==''?'COMPANY NAME':wrk.company}</p>
                                                 <div className="resp">
-                                                    <p>
+                                                    <p className='resp'>
                                                         {wrk.responsibility==''?'Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore a voluptates necessitatibus distinctio sapiente sit ducimus labore, vero omnis vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, ducimus.':wrk.responsibility}
                                                     </p>
                                                 </div>
