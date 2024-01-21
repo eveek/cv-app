@@ -15,6 +15,8 @@
 .landingMessage{
   height: 800px;
   width: 90%;
+  height: 100vh;
+  max-height: 800px;
   /* min-width: 1350px; */
   margin: auto;
   border-radius: 0px;
@@ -166,8 +168,9 @@ button.lBtn:hover{
     margin-top: 0;
   }
 
-  .pageTwo {
+  .page .pageTwo {
     overflow-x: hidden;
+    margin-top: 300px;
   }
 
   .One .hOne {
